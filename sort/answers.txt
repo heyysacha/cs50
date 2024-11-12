@@ -1,0 +1,42 @@
+sort1 uses: bubble
+
+How do you know?: it took around the same amount of time to do the random files and the reversed files. since bubble sort bubbles the largest
+number to the end, having the numbers be reversed would take it the most amount of time as it would have to switch every number basically.
+
+5k random: .75 / .31
+10k random: .201 / .139
+50k random: 5.588 / 4.969
+5k reversed: .87 / .41
+10k reversed: .247 / .160
+50k reversed: 5.130 / 4.452
+5k sorted: .069 / .008
+10k sorted: .074 / .007
+50k sorted: .429 / .030
+
+sort2 uses: merge
+
+How do you know?: the speeds for all three versions of the txt file were similar. it was also the fastest compared to the other two sort methods.
+
+5k random: 0.37 / .004
+10k random: .105 / .004
+50k random: .488 / .032
+5k reversed: 0.29 / .000
+10k reversed: 0.55 / .000
+50k reversed: .400 / .026
+5k sorted: .033 / .004
+10k sorted: .075 / .000
+50k sorted: .503 / .018
+
+sort3 uses: selection
+
+How do you know?: it took the longest to do the 50k sorted file which means it didn't have an exit strategy for if the items were already in order
+
+5k random:
+10k random:
+50k random:
+5k reversed:
+10k reversed:
+50k reversed:
+5k sorted: .056 / .023 /.027
+10k sorted: .137 / .90 / .050
+50k sorted: 2.466 / 2.016 / .286

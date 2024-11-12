@@ -1,0 +1,19 @@
+Spotify Wrapped is a feature presenting Spotify users’ 100 most played songs from the past year.
+In 2021, Spotify Wrapped calculated an “Audio Aura” for each user, a “reading of [their] two most prominent moods
+as dictated by [their] top songs and artists of the year.” Suppose Spotify determines an audio aura by looking at
+the average energy, valence, and danceability of a person’s top 100 songs from the past year. In answers.txt,
+reflect on the following questions:
+
+If songs.db contains the top 100 songs of one listener from 2018, how would you characterize their audio aura?
+Hypothesize about why the way you’ve calculated this aura might not be very representative of the listener.
+What better ways of calculating this aura would you propose?
+
+I looked up what the meanings were for those items here: https://developer.spotify.com/documentation/web-api/reference/get-audio-features
+And read about the Spotify Audio Aura here: https://engineering.atspotify.com/2021/12/the-audio-aura-story-mystical-to-mathematical/
+
+Using that information, I would say the energy is a bit above average, danceability is high, and valence is a bit below average.
+There isn't a list of the keywords spotify uses to assign auras, but the higher energy and danceability would make me think of upbeat songs,
+however the valence is associated with how "happy" a track sounds, and that is slightly lower than average.
+
+Using the list of audio features from the first link, I think I would also want to consider the instrumentalness, key, and maybe even
+loudness to get a better view of the person's listening habits.
