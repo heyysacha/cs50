@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+    <h1>Cash Count Instructions</h1>
+        <ul>
+            <li class="instructions">Click <a href="/count.html">here</a> or on "Count" in the menu above to go to the cash count page.</li>
+            <li class="instructions">You will select which register
+                you are counting and then the amount of cash sales that have been done today on that register. If this is an opening cash count,
+                that number will be 0.</li>
+            <li class="instructions">You will put in the physical number of each denomination (for example, 2 twenty dollar bills) and the app
+                will calculate the amount for you.</li>
+            <li class="instructions">It will automatically add everything up and compare it to what is expected and show you the variance, if any.</li>
+            <li class="instructions">Make sure everything is correct before hitting submit as once you do, your count will be added to the history and cannot be altered.</li>
+            <li class="instructions">Repeat for each register and be sure to report any variances to your manager.</li>
+        </ul>
+    <h2>Today's Counts</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="text-start">Date</th>
+                <th class="text-start">Time</th>
+                <th class="text-end">Register</th>
+                <th class="text-end">Employee</th>
+                <th class="text-end">Variance</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in history %}
+            <tr>
+                <td class="text-start">{{ row.date }}</td>
+                <td class="text-start">{{ row.time }}</td>
+                <td class="text-end">{{ row.register }}</td>
+                <td class="text-end">{{ row.user_id }}</td>
+                <td class="text-end var">{{ row.variance | usd }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <th class="text-end" colspan="4">Total Variance</th>
+                <td class="text-end" id="total-var">{{ sum_variance | usd }}</td>
+            </tr>
+        </tfoot>
+    </table>
+    <script src="/static/color.js"></script>
+{% endblock %}

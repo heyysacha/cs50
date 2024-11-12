@@ -1,0 +1,28 @@
+HTML tags used:
+nav
+a
+h1
+h2
+p
+img
+ol
+li
+ul
+figure
+figcaption
+map
+area
+
+CSS properties used:
+display
+border
+caption-side
+text-align
+margin
+width
+border-radius
+background-color
+
+
+I used bootstrap on my nav bar to style it and add the pill background.
+For Javascript, because it was a simple website, I added the functionality to change the color of the letters in the header on a mouseover to add a little fun.

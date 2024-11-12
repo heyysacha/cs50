@@ -1,0 +1,54 @@
+<!-- adapted from pset 9 - finance -->
+
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <h1>History</h1>
+    <form action="/history" method="post">
+        <select name="time">
+            <option value="week">Week</option>
+            <option value="month">Month</option>
+            <option value="year">Year</option>
+        </select>
+        <br>
+        <button class="btn btn-primary" type="submit">View</button>
+    </form>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="text-start">Date</th>
+                <th class="text-start">Time</th>
+                <th class="text-end">Register</th>
+                <th class="text-end">Employee</th>
+                <th class="text-end">Variance</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in history %}
+            <tr>
+                <td class="text-start">{{ row.date }}</td>
+                <td class="text-start">{{ row.time }}</td>
+                {% if row.register == 'reg-1' %}
+                <td class="text-end">Register 1</td>
+                {% endif %}
+                {% if row.register == 'reg-2' %}
+                <td class="text-end">Register 2</td>
+                {% endif %}
+                <td class="text-end">{{ row.user_id }}</td>
+                <td class="text-end var">{{ row.variance | usd }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <th class="text-end" colspan="4">Total Variance</th>
+                <td class="text-end" id="total-var">{{ sum_variance | usd }}</td>
+            </tr>
+        </tfoot>
+    </table>
+    <script src="/static/color.js"></script>
+{% endblock %}

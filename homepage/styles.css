@@ -1,0 +1,47 @@
+* {
+    --highlight-green: #DFFF00;
+    --lavender: #d69bff;
+    --background: #e7e7e7;
+}
+
+body {
+    background-color: var(--background);
+}
+
+li {
+    margin: 5px;
+}
+
+ul {
+    background-color: var(--lavender);
+    width: 100%;
+}
+
+.hover:hover {
+    background-color: var(--highlight-green);
+    border-radius: 5px;
+
+}
+
+.content {
+    width: 65%;
+    text-align: center;
+}
+
+h1, h2 {
+    margin: 20px;
+}
+
+/* help with aligning figure and caption from here: https://stackoverflow.com/questions/6523560/image-captions-and-wrapping */
+
+figure {
+    display: table;
+    border: solid 1px;
+}
+
+figcaption {
+    border: solid 1px;
+    display: table-caption;
+    caption-side: bottom;
+    text-align: center;
+}

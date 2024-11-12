@@ -1,0 +1,3 @@
+take an int input 1-8
+check to make sure the input is valid
+if so, printf # input amount of times, incrementing the # each time

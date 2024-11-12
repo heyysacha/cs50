@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+    <a href="/count.html">Count Register</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="text-start">Date</th>
+                <th class="text-start">Time</th>
+                <th class="text-end">Register</th>
+                <th class="text-end">Employee</th>
+                <th class="text-end">Variance</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row, price, total in zipped %}
+            <tr>
+                <td class="text-start">{{ row.date }}</td>
+                <td class="text-start">{{ row.time }}</td>
+                <td class="text-end">{{ row.register }}</td>
+                <td class="text-end">{{ row.user_id }}</td>
+                <td class="text-end">{{ row.variance }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <th class="text-end" colspan="3">Total Variance</th>
+                <td class="text-end">{{ total }}</td>
+            </tr>
+        </tfoot>
+    </table>
+{% endblock %}

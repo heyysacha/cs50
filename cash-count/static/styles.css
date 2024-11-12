@@ -1,0 +1,26 @@
+#count-table {
+    width: 55%;
+    justify-self: center;
+}
+
+#total, #expected, #variance {
+    text-align: right;
+}
+
+ul {
+    list-style-position: inside;
+}
+
+.instructions {
+    width: 70%;
+    justify-self: center;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+select {
+    margin: 10px;
+    padding: 5px 10px;
+}
