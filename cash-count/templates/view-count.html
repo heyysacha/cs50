@@ -1,0 +1,102 @@
+<!-- adapted from pset 9 - finance -->
+
+{% extends "layout.html" %}
+
+{% block title %}
+    View count
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="text-start">Date</th>
+                <th class="text-start">Time</th>
+                <th class="text-end">Register</th>
+                <th class="text-end">Employee</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in history %}
+            <tr>
+                <td class="text-start">{{ row.date }}</td>
+                <td class="text-start">{{ row.time }}</td>
+                {% if row.register == 'reg-1' %}
+                <td class="text-end">Register 1</td>
+                {% endif %}
+                {% if row.register == 'reg-2' %}
+                <td class="text-end">Register 2</td>
+                {% endif %}
+                <td class="text-end">{{ row.user_id }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <table class="table table-striped count">
+        <thead>
+            <tr>
+                <th>Denomination</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        {% for row in history %}
+        <tbody>
+            <tr>
+                <td>Hundreds</td>
+                <td>${{ row.hundred * 100 }}</td>
+            </tr>
+            <tr>
+                <td>Fifties</td>
+                <td>${{ row.fifty * 50 }}</td>
+            </tr>
+            <tr>
+                <td>Twenties</td>
+                <td>${{ row.twenty * 20 }}</td>
+            </tr>
+            <tr>
+                <td>Tens</td>
+                <td>${{ row.ten * 10 }}</td>
+            </tr>
+            <tr>
+                <td>Fives</td>
+                <td>${{ row.five * 5 }}</td>
+            </tr>
+            <tr>
+                <td>Ones</td>
+                <td>${{ row.one }}</td>
+            </tr>
+            <tr>
+                <td>Quarters</td>
+                <td>{{ (row.quarter * 0.25) | usd }}</td>
+            </tr>
+            <tr>
+                <td>Dimes</td>
+                <td>{{ (row.dime * 0.10) | usd }}</td>
+            </tr>
+            <tr>
+                <td>Nickels</td>
+                <td>{{ (row.nickel * 0.05) | usd }}</td>
+            </tr>
+            <tr>
+                <td>Pennies</td>
+                <td>{{ (row.penny * 0.01) | usd }}</td>
+            </tr>
+        </tbody>
+        <tfoot class="table-secondary">
+            <tr>
+                <th>Total:</th>
+                <td>{{ row.total | usd }}</td>
+            </tr>
+            <tr>
+                <th>Expected:</th>
+                <td>{{ row.expected | usd }}</td>
+            </tr>
+            <tr>
+                <th>Variance:</th>
+                <td id="total-var">{{ row.variance | usd }}</td>
+            </tr>
+        </tfoot>
+        {% endfor %}
+    </table>
+    <script src="/static/color.js"></script>
+{% endblock %}
